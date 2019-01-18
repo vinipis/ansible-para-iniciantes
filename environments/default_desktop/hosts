@@ -1,5 +1,5 @@
 [monitoring_clients]
-ubuntu-desk-1 ansible_host=10.55.2.49 ansible_password=vagrant
+ubuntu-desk-1 ansible_host=192.168.33.10 ansible_password=vagrant
 fratura-temporal ansible_connection=local
 
 [all:vars]
