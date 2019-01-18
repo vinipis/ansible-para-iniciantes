@@ -1,0 +1,12 @@
+---
+
+- name: download apt repository
+  apt_repository:
+    repo: "ppa:embrosyn/cinnamon"
+    state: present
+  when: ansible_os_family == 'Debian' 
+
+- name: Installing standard packages apt
+  package:
+    name: cinnamon
+    state: latest

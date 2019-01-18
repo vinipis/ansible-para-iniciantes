@@ -1,0 +1,23 @@
+---
+
+- name: add apt key
+  apt_key:
+    url: "https://download.sublimetext.com/sublimehq-pub.gpg"
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: download apt repository
+  apt_repository:
+    repo: "deb https://download.sublimetext.com/ apt/stable/"
+    state: present
+    update_cache: yes  
+  when: ansible_os_family == 'Debian'
+
+- name: Enabling repo
+  shell: "dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo"
+  ignore_errors: True
+
+- name: Installing standard packages
+  package:
+    name: sublime-text
+    state: latest

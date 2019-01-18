@@ -1,0 +1,5 @@
+---
+- name: Installing Zoom [Debian]
+  apt: 
+    deb: https://d11yldzmag5yn.cloudfront.net/prod/2.3.128305.0716/zoom_amd64.deb
+  when: ansible_os_family == 'Debian'

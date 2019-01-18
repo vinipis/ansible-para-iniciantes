@@ -1,0 +1,26 @@
+---
+- name: Kill APT process
+  shell: "{{ item }}"
+  ignore_errors: true
+  with_items:
+    - ps ax | grep apt | awk '{print $1}' | xargs kill -9
+    - apt-get -y remove libappstream3 apport
+
+- name: Installing standard packages apt
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items: 
+    - "{{ apts_install }}"
+  ignore_errors: True
+
+- name: Install pip
+  pip:
+   name: "{{item}}"
+   state: latest
+  with_items: "{{ pips_install }}"
+
+- name: Include Repository Install
+  include: "{{ item }}.yml"
+  with_items:
+    - "{{include_repository_install}}"

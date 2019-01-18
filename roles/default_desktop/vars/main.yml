@@ -1,0 +1,38 @@
+---
+apts_install:
+  - curl
+  - gdebi
+  - diodon
+  - build-essential
+  - automake
+  - cmake
+  - guake
+  - icedtea-plugin
+  - git
+  - vagrant
+  - "network-manager*"
+  - "networkmanager-*"
+  - python-pip
+  - apt-transport-https
+  - ipcalc
+  - netcat
+  - terminator
+
+pips_install:
+  - pip
+  - virtualenv
+  - virtualenvwrapper
+  - autoenv
+  - ansible
+  - aws-shell
+  - awscli
+  - pydf
+  - s3cmd
+
+include_repository_install:
+  - sublime-text
+  - virtualbox
+  - cinnamon
+  - zoom
+
+virtualbox_version: 5.2
